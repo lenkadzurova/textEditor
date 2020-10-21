@@ -33,6 +33,7 @@ public class TextEditorController {
             while ((strBuffer= bufferedReader.readLine()) != null){
             //    System.out.println(strBuffer);
                 myTetxFile.setText(strBuffer);
+
             }
 
         } catch (IOException e) {
