@@ -12,10 +12,12 @@ public class TextEditorController {
 
     @FXML
     public void save(){
+        String strWriter;
         try {
             BufferedWriter bufferedWriter02 = new BufferedWriter(new FileWriter("dokument", true));
-            bufferedWriter02.newLine();
-            bufferedWriter02.write(String.valueOf(myTetxFile));
+            strWriter = myTetxFile.getText();
+            System.out.println(strWriter);
+            bufferedWriter02.write(strWriter);
             bufferedWriter02.close();
 
         } catch (IOException e) {
@@ -29,7 +31,8 @@ public class TextEditorController {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("dokument"));
             while ((strBuffer= bufferedReader.readLine()) != null){
-                System.out.println(strBuffer);
+            //    System.out.println(strBuffer);
+                myTetxFile.setText(strBuffer);
             }
 
         } catch (IOException e) {
