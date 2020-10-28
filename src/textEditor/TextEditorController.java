@@ -28,13 +28,16 @@ public class TextEditorController {
 
     public void initialize(){
         String strBuffer;
+        String vystup = "";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("dokument"));
             while ((strBuffer= bufferedReader.readLine()) != null){
             //    System.out.println(strBuffer);
-                myTetxFile.setText(strBuffer);
-
+            //    myTetxFile.setText(strBuffer);
+                vystup= vystup + strBuffer + "\n";
             }
+            myTetxFile.setText(vystup);
+            bufferedReader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
