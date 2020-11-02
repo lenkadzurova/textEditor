@@ -12,9 +12,25 @@ public class URLuloha {
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 
             String vystup;
+            int celkovypocet = 0;
             while ((vystup = reader.readLine()) != null) {
-                System.out.println(vystup);
+                //System.out.println(vystup);
+
+                for (int x= 0; x < vystup.length(); x++){
+                    switch (vystup.substring(x)){
+                        case "div":
+                            celkovypocet++;
+                            break;
+                        case "script":
+                            celkovypocet++;
+                            break;
+                    }
+                }
+                System.out.println(celkovypocet);
             }
+            reader.close();
+
+
 
 
         } catch (IOException e) {
